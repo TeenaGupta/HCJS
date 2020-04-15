@@ -1,0 +1,767 @@
+* {
+padding: 0;
+margin: 0;
+text-decoration:none;
+list-style: none;
+box-sizing: border-box;
+}
+body {
+font-family: 'Sen', sans-serif;
+}
+
+/* ///////  HEADER   ////// */
+
+#wrapper {
+	width: 100%;
+	height: 100vh;
+}
+.wrapper .center {
+position: absolute;
+top: 35%;
+left: 55%;
+transform: translate(-50%, -50%);
+}
+
+/* /////   CLOCK    /////// */
+
+.clock{
+background:#ececec ;
+width: 300px;
+height: 300px;
+margin: 8% auto 0;
+border-radius: 50%;
+border: 14px solid #333;
+position: relative;
+box-shadow: 0 2vw 4vw -1vw rgba(0, 0, 0, 0.8);
+}
+.dot {
+width: 14px;
+height: 14px;
+border-radius: 50%;
+background: #000;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+margin:auto ;
+position: absolute;
+z-index: initial;
+box-shadow: 0 2px 4px -1px black;
+}
+.hour-hand {
+position: absolute;
+z-index: 10;
+width: 4px;
+height: 66px;
+background: blue;
+top: 65px;
+transform-origin: 50% 72px;
+left: 50%;
+margin-left: -2px;
+border-top-left-radius: 50%;
+border-top-right-radius: 50%;
+}
+.minute-hand {
+position: absolute;
+z-index: 30;
+width: 4px;
+height: 100px;
+background-color: green;
+top: 30px;
+left: 50%;
+margin-left: -2px;
+border-top-left-radius: 50%;
+border-top-right-radius: 50%;
+transform-origin: 50% 105px;
+}
+.second-hand {
+position: absolute;
+z-index: 10;
+width: 2px;
+height: 120px;
+background-color: red;
+top: 11px;
+left: 50%;
+margin-left: -1px;
+border-top-left-radius: 50%;
+border-top-right-radius: 50%;
+transform-origin: 50% 125px;
+}
+span {
+display: inline-block;
+position: absolute;
+color: #222;
+font-size: 22px;
+font-weight: 700;
+z-index: 4;
+}
+.h12 {
+top: 30px;
+left: 50%;
+margin-left: -9px;
+}
+.h3{
+top: 140px;
+right: 30px;
+}
+.h6{
+bottom: 10px;
+left: 50%;
+margin-left: -5px;
+}
+.h9 {
+left: 32px;
+top: 140px;
+}
+.diallines{
+position: absolute;
+z-index: 2;
+width: 2px;
+height: 15px;
+background: #666;
+left: 50%;
+margin-left: -1px;
+transform-origin: 50% 150px;
+}
+.diallines:nth-of-type(5n){
+position: absolute;
+z-index: 2;
+width: 4px;
+height: 25px;
+background: #666;
+left: 50%;
+margin-left: -1px;
+transform-origin: 50% 150px;
+}
+.date {
+position: absolute;
+width: 120px;
+height: 20px;
+border-radius: 7px;
+background-color: #888;
+text-align: center;
+line-height: 20px;
+color: #fff;
+font-size: 11px;
+top:80px ;
+left: 50%;
+margin-left: -60px;
+font-weight: 700;
+z-index: 3;
+letter-spacing: 3px;
+}
+.day {
+position: absolute;
+width: 120px;
+height: 20px;
+border-radius: 7px;
+background-color: #888;
+text-align: center;
+line-height: 20px;
+color: #fff;
+font-size: 11px;
+top:200px ;
+left: 50%;
+margin-left: -60px;
+font-weight: 700;
+z-index: 3;
+letter-spacing: 3px;
+}
+
+/* ///////   INTRODUCTION ///////// */
+h2 {
+	color: red;
+	text-align: center;
+}
+
+#info {
+	color: lime;
+	text-align: center;
+}
+
+#intro {
+	text-align: center;
+	border-radius: 40%;
+	border: 3px dotted lime;
+	width: 300px;
+	height: 40px;
+	margin: auto;
+	position: relative;
+	display: flex;	
+}
+
+h1  {
+	text-align: center;
+	text-transform: capitalize;
+	color: hotpink;
+}
+/* ////////// ANIMATED DATA ENTRY ////////// */
+
+@keyframes blink {
+	0% {
+		height : 0px;
+	}
+	10% {
+		height: 15px;
+	}
+	20% {
+		height: 0px;
+	}
+}
+
+.card {
+	display: block;
+	justify-content: center;
+	align-items: center;
+	color: #00a4a0;
+	background: white;
+	border-radius: 10px;
+	min-width: 300px;
+	min-height: 300px;
+	padding: 20px;
+	margin: 20px 800px;
+	box-shadow: 0px 1px 8px 1px #222;
+}
+.card_group{
+	display: flex;
+	border-bottom: 1px solid #222;
+	border-color: #222;
+	transition: border-color 0.5s;
+	align-items: flex-end;
+	padding: 1rem;
+	justify-content: space-between;
+}
+.card_gender {
+	padding: 5px 15px;
+	flex: 1;
+	text-align: center;
+}
+.card_gender:not(:first-child) {
+	border-left: 4px groove lime;
+}
+.card_gender .card_gender-label{
+	transition: .5s;
+	cursor: pointer ;
+}
+
+input[type="radio"]:checked+.card_gender-label {
+	color: blue;
+}
+.card_label {
+	flex-basis: 25%;
+	max-width: 25%;
+	margin-right: 10px;
+}
+.card_input {
+	width: 100%;
+	box-sizing: border-box;
+	background: none;
+	border: 0;
+	flex: 1;
+	font-size: 14px;
+	color: #999;
+}
+.card_input:valid ~ .card_check {
+	transform: scale(1);
+	background: green;
+}
+.card_input:invalid ~ .card_check {
+	transform: scale(1);
+	background: red;
+}
+.card_check  {
+	width: 20px;
+	height: 20px;
+	border-radius: 100%;
+	transform: scale(0);
+	transition: transform .2s;
+	position: relative;
+	margin: 0 0 0 10px;
+}
+.card_input:valid ~ .card_check::after{
+	transform: rotate(45deg)scale(1);
+	background: green;
+
+}
+.card_input:invalid ~.card_check::after{
+	transform: rotate(0)scale(1);
+	border-width: 2px 2px 0 0;
+	width: 10%;
+	background: red;
+}
+.card_check::before{
+	content: "";
+	height: 2px;
+	position: absolute;
+	top: 14px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	border-radius: 100%;
+	width: 2px;
+	background: white;
+	transform: scale(0);
+	transition: all .2s;
+}
+
+.card_check::after {
+	content: "" ;
+	height: 8px;
+	position: absolute;
+	top: 4px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	border-color: white;
+	width: 4px;
+	border-width: 0 2px 2px 0;
+	border-style: solid;
+	background: white;
+	transform: rotate(45deg)scale(0);
+	transition: all .2s;
+}
+.card_input:focus{
+	outline: none; 
+}
+.container {
+	background: #fff4ea;
+	border-radius: 100%;
+	overflow: hidden;
+	height: 235px;
+	width: 235px;
+	margin: 8px auto 25px auto;
+	position: relative;
+}
+.address.container::before {
+	transform: translateY(0%);
+}
+.container::before {
+	content: "" ;
+	background-image: url('images/building.png');
+	background-position: center;
+ 	background-size: cover;
+ 	position: absolute;
+ 	top : 0;
+ 	left: 0;
+ 	width: 100%;
+ 	height: 100%;
+ 	transform: translateY(100%);
+ 	transition: all 1s;
+}
+.avatar{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	justify-content: flex-end;
+	transform: translateY(155px);
+	transition: 1s transform;
+}
+.avatar_body{
+	background: blue;
+	height: 100px;
+	width: 120px;
+	border-radius: 60px 60px 10px 10px;
+}
+
+.visible .avatar {
+	transform: translateY(35px);
+}
+
+.female, .male {
+	margin-top: -20px;
+}
+._head  {
+	background: #f7d596;
+	height: 100px;
+	width: 90px;
+	position: relative;
+	bottom: -30px;
+	border-radius: 10px 10px 50px 50px;
+	display: block;
+	justify-content: space-between;
+}
+
+.female .avatar_hair {
+	position: relative;
+	width: 100px;
+	height: 35px;
+	background: #ffbc00;
+	clip-path: polygon(5% 5%, 100% 0% ,100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+	bottom: -52px;
+	z-index: 2;
+	border-radius: 10px 0 10px 0;
+	transform: rotate(-12deg);
+}
+.female.avatar::before {
+	background: #ffbc00;
+	content: "" ;
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	top: 60px;
+	border-radius: 10px;
+}
+.female .avatar_hair {
+	transform: rotate(-13deg);
+	border-radius: 16px;
+}
+.female .avatar_curras {
+	content: "" ;
+	background: #ffbc00 ;
+	width: 5px;
+	height: 8px;
+}
+.male .avatar_hair {
+	position: relative;
+	width: 100px;
+	height: 35px;
+	background: black;
+	clip-path: polygon(5% 5%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+	bottom: -52px;
+	z-index: 2;
+	border-radius: 20% 0;
+	transform: rotate(-11deg);
+}
+.male .avatar_curras--left {
+	content: "" ;
+	background: black;
+	width: 5px;
+	height: 50px;
+	border-radius: 30%;
+	position: absolute;
+	margin-left: -1px;
+}
+
+.male .avatar_curras--right {
+	content: "" ;
+	background: black;
+	width: 5px;
+	height: 50px;
+	border-radius: 30%;
+	position: absolute;
+	margin-left: 85px;
+	top: 0px;
+}
+.avatar_face {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+.avatar_eyebrow {
+	display: flex;
+	align-items: center;
+	padding-top: 11px;
+	position: relative;
+}
+
+.avatar_eyebrow::before {
+	content: '' ;
+	background: white;
+	border-top: 4px solid black;
+	width: 64%;
+	height: 14px;
+	border-radius: 100%;
+	position: absolute;
+	top: 22px;
+	z-index: 0;
+	left: -12.5px;
+}
+.avatar_eyebrow::after {
+	content: '' ;
+	background: white;
+	border-top: 4px solid black;
+	width: 64%;
+	height: 14px;
+	border-radius: 100%; 
+	position: absolute;
+	top: 22px;
+	z-index: 0;
+	left: 23.5px;	
+}
+.avatar_eyes{
+	display: flex;
+	align-items: center;
+	padding-top: 10px;
+	position: relative;
+}
+.avatar_eyes::before{
+	content: '' ;
+	background: #0d0d0d;
+	width: 63%;
+	border-radius: 100%;
+	position: absolute;
+	top: 13px;
+	z-index: 2;
+	left: -12.5px;
+	animation: blink 3s linear infinite;
+}
+
+.avatar_eyes::after{
+	content: '' ;
+	background: #0d0d0d;
+	width: 63%;
+	border-radius: 100%;
+	position: absolute;
+	top: 14px;
+	z-index: 1;
+	left: 23.5px;
+	animation: blink 3s linear infinite;
+}
+
+.avatar_pupil  {
+	content: "";
+	position: relative;
+	width: 14px;
+	height: 14px;
+	border-radius: 100%;
+	background: black;
+	left: 0;
+	right: 0;
+	margin: auto;
+	top: 3px;
+	z-index: 1;
+}
+
+.avatar_pupil--left {
+	left: -11px;
+}
+
+.avatar_pupil--right {
+	left: 11px;
+}
+
+.avatar_pupil::before{
+	content: "";
+	position: absolute;
+	border-radius: 100%;
+	background: white;
+	top: 50%;
+	left: 0;
+	right: 0;
+	width: 4px;
+	height: 4px;
+	margin: auto;
+	transform: translate(-50%, -50%);
+}
+
+.avatar_mouth {
+	content: "";
+	background: #ff7d7d;
+	width: 40px;
+	height: 5px;
+	border-radius: 0 0 100% 100%;
+	position: absolute;
+	top: 65px;
+	z-index: 1;
+	box-shadow: inset 3px 0 0 2px #ff1a1a59;
+}
+
+.mouth .avatar_mouth{
+	height: 30px;
+	transition: 1s;
+	transition-timing-function: ;
+}
+
+
+ /*///////  RESPONSIVE //////// */
+
+@media only screen and (min-width: 993px) {
+	.card {
+		margin-left: 40%;
+	}
+}
+@media only screen and (min-width: 769px) and (max-width:992px){
+	.card {
+		margin-left: 30%;
+	}
+}
+@media screen and (min-width: 481px) and (max-width:768px){
+	.card {
+		margin-left: 20%;		
+	}
+}
+@media only screen and (min-width: 321px) and (max-width:480px){
+	.clock{
+	width: 200px;
+	height: 200px;
+	border: 8px solid #333;
+}
+	.dot {
+	width: 11px;
+	height: 11px;
+	}
+	.hour-hand {
+	position: absolute;		
+	height: 47px;
+	top: 22%;
+	left: 50%;
+	margin-left: -1px;
+	transform-origin: 50% 51px;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+}
+	.minute-hand {
+	position: absolute;
+	height:55px;
+	top: 19%;
+	left: 50%;
+	margin-left: -2px;
+	transform-origin: 50% 59px;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+}
+	.second-hand {
+	position: absolute;
+	height: 68px;
+	top: 12%;
+	left: 50%;	
+	margin-left: 0;
+	transform-origin: 50% 72px;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+}
+	span {
+	font-weight: 600;
+	font-size: 20px;
+}
+
+	.h3{
+	top: 80px;
+	right: 15px;
+}
+	.h6{
+	top:147px;
+}
+
+	.h9 {
+	left: 15px;
+	top: 80px;
+}
+	.h12 {
+	top: 22px;
+	}
+
+	.diallines:nth-of-type(5n){
+	width: 3px;
+	height: 20px;
+	margin-left: 2px;
+}
+	.date {
+	top:60px ;
+	width: 90px;
+	height: 17px;
+	font-size: 10px;
+	line-height: 18px;
+	margin-left: -45px;		
+}
+
+	.day {
+	top: 125px ;
+	width: 90px;
+	height: 17px;
+	font-size: 10px;
+	line-height: 18px;
+	margin-left: -45px;		
+}
+	.card {
+		margin-left: 10%;		
+	}
+}
+@media only screen and (max-width:320px){
+	.clock{
+	width: 200px;
+	height: 200px;
+	border: 8px solid #333;
+}
+	.dot {
+	top: 5px;
+	width: 10px;
+	height: 10px;
+}
+	.hour-hand {
+	position: absolute;
+	height: 45px;
+	top: 26%;
+	left: 50%;
+	margin-left: 0;
+	transform-origin: 50% 48px;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+}
+	.minute-hand {
+	position: absolute;
+	height:57px;
+	top: 19%;
+	left: 50%;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	margin-left: -2px;
+	transform-origin: 50% 60px;
+}
+	.second-hand {
+	position: absolute;
+	height: 66px;
+	top: 14%;
+	left: 50%;
+	margin-left: 0;
+	transform-origin: 50% 68px;
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+}
+	span {
+	font-weight: 600;
+	font-size: 20px;
+}
+
+	.h3{
+	top: 81px;
+	right: 15px;
+}
+	.h6{
+	top:147px;
+}
+
+	.h9 {
+	left: 15px;
+	top: 81px;
+}
+	.h12 {
+		top: 22px;
+	}
+
+	.diallines:nth-of-type(5n){
+	width: 3px;
+	height: 20px;
+	margin-left: 0;
+	}
+	.date {
+	top:60px ;
+	width: 90px;
+	height: 17px;
+	font-size: 10px;
+	line-height: 18px;
+	margin-left: -45px;		
+}
+
+	.day {
+	top: 125px ;
+	width: 90px;
+	height: 17px;
+	font-size: 10px;
+	line-height: 18px;
+	margin-left: -45px;		
+}
+	#intro {
+	width: 230px;
+	height: 40px;
+	font-size: 11px;
+}
+	.card {
+		margin: 20px 1px;
+
+	}
+}

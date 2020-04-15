@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- ////Google Font///// -->
+		<link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
+		<!-- /////custom css////// -->
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title> HTJS PROJECT </title>
+	</head>
+	<body>
+
+		<!-- ////// HEADER //////// -->
+
+			<div class="wrapper">
+			<img src="images/lap.jpg" alt="lap" id="wrapper">
+		</div>
+
+		<!-- //////// CLOCK /////// -->
+
+		<div class="clock">
+			<div>
+				<div class="date"> </div>
+				<div class="day">  </div>
+			</div>
+			<div class="dot"> </div>
+			<div>
+				<div class="hour-hand"> </div>
+				<div class="minute-hand"> </div>
+				<div class="second-hand"> </div>
+			</div>
+			<div>
+				<span class="h3"> 3 </span>
+				<span class="h6"> 6 </span>
+				<span class="h9"> 9 </span>
+				<span class="h12"> 12 </span>
+			</div>
+			<div class="diallines"> </div>
+		</div> <br> <br> <br>
+
+		<!-- /////// INTRODUCTION ///////// -->
+
+		<h2 class="Name"> <i> Hii! </i> <br> I Am Teena Gupta And You: <br> <br> </h2>
+		<input id="intro" type = "text" placeholder="Enter your name to see something different" onclick="myFun()"> <br> <br>
+		<h2 id="info"> </h2> <br>
+
+		<h1>
+			just for fun fill these details -> </h1>
+
+		<!-- //////// ANIMATED DATA ENTRY //////////// -->
+
+		<div class="card">
+			<div class="container">
+				<figure class="avatar">
+					<div class="avatar_hair"></div>
+					<div class="_head">
+						<div class="avatar_curras--left"></div>
+						<div class="avatar_face">
+						<div class="avatar_eyebrow">		
+							<div class="avatar_eyes">
+								<div class="avatar_eye">
+									<div class="avatar_pupil avatar_pupil--left"></div>
+								</div>
+								<div class="avatar_eye">
+									<div class="avatar_pupil avatar_pupil--right"></div>
+								</div>
+							</div>
+						</div>
+							<div class="avatar_mouth"> </div>
+						</div>
+						<div class="avatar_curras--right"></div>
+					</div>
+					<div class="avatar_body"></div>
+				</figure>
+			</div>
+			<div class="card_group">
+				<label class="card_label" for="name"> Name </label>
+				<input class="card_input" id="name" required>
+				<i title="ok!" class="card_check"></i>
+			</div>
+			<div class="card_group">
+				<label class="card_label" for="address"> Address </label>
+				<input class="card_input" id="address" type="address" required>
+				<i title="ok!" class="card_check"></i>
+			</div>
+			<div class="card_group">
+				<div class="card_gender">
+					<label class="card_gender-label" for="female"> Female </label>
+					<input hidden type="radio" id="female" name="gender">
+				</div>
+				<div class="card_gender">
+					<label class="card_gender-label" for="male"> Male </label>
+					<input hidden type="radio" id="male" name="gender">
+				</div>
+				<div class="card_gender">
+					<label class="card_gender-label" for="other"> Other </label>
+					<input hidden type="radio" id="other" name="gender">
+				</div>
+			</div>
+			<div class="card_group">
+				<label class="card_label" for="email"> Email </label>
+				<input class="card_input" id="email" type="email" required>
+				<i title="ok!" class="card_check"></i>
+			</div>
+		</div>
+
+		<script src="javascript.js"> </script>
+	</body>
+</html>
